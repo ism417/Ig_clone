@@ -1,8 +1,6 @@
 import { prisma } from "@/db";
-import { Button, Switch, TextArea, TextField } from "@radix-ui/themes";
-import { UploadCloud } from "lucide-react";
+import { Button} from "@radix-ui/themes";
 import { auth, signOut} from "@/auth";
-import { redirect } from "next/navigation";
 import SettingsForm from "@/components/SettingForm";
 
 export default async function SettingsPage()

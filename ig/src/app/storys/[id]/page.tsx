@@ -1,11 +1,9 @@
-
-
 import { getSessionEmailOrThrow } from "@/actions";
 import DeleteStoryForm from "@/components/DeleteStory";
 import ModalStory from "@/components/ModalStory";
 import { prisma } from "@/db";
 import { Avatar } from "@radix-ui/themes";
-import { ChevronLeft, ChevronRight, Trash2Icon } from "lucide-react";
+import { ChevronLeft, ChevronRight} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -73,7 +71,7 @@ export default async function StoryPage({params}:{params:Promise<{id :string}>})
 
                     </div>
                 </div>
-                <img src={story?.image} alt="image" className="w-90 ml-5"/>
+                <Image src={story?.image||""} alt="image" className="w-90 ml-5"/>
             </div>
         </ModalStory>
     )

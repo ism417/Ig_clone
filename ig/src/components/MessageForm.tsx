@@ -1,7 +1,6 @@
 'use client'
 import { sendMessage } from "@/actions";
-import { Button, TextArea, TextField } from "@radix-ui/themes";
-import { Send, Smile } from "lucide-react";
+import { Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 

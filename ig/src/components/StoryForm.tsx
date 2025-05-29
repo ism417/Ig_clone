@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import ModalStory from "./ModalStory";
 import { Button } from "@radix-ui/themes";
+import Image from "next/image";
 
 export default function StoryForm(){
     const [imageUrl, setImageUrl] = useState('');
@@ -25,7 +26,7 @@ export default function StoryForm(){
                 });
         }
     }, [file]);
-    const handleSubmit = async (data: any) => {
+    const handleSubmit = async (data: FormData) => {
         const id = await createStory(data);
         router.push(`/storys/${id}`);
     };
@@ -38,7 +39,7 @@ export default function StoryForm(){
             { imageUrl && (
                 <ModalStory>
                     <div className="bg-black/30 w-100 py-5 rounded-lg">
-                        <img src={imageUrl}  alt="image" className="w-90 ml-5"/>
+                        <Image src={imageUrl}  alt="image" className="w-90 ml-5"/>
                         <div className="flex justify-center mt-2">
                             <Button className="" >
                                 Publish

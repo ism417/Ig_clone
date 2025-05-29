@@ -3,10 +3,11 @@ import SearchResult from "@/components/SearchResults";
 import { Suspense } from "react";
 
 export default async function SearchPage({
-    searchParams:{query},
+    searchParams,
 }:{
-    searchParams:{query:string},
-}){
+    searchParams: Promise<{ query: string }>; // Adjust type to Promise
+}) {
+    const { query } = await searchParams;
     return(
         <div className="w-full">
             <div className="max-w-md mx-auto">

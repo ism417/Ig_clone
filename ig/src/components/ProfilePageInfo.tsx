@@ -1,9 +1,9 @@
 import { Follower, Profile } from "@prisma/client";
-import { CheckIcon, ChevronLeft, Settings, UserPlusIcon } from "lucide-react";
-import ProfilePosts from "./ProfilePosts";
+import { CheckIcon, ChevronLeft, Settings } from "lucide-react";
 import FollowButton from "./FollowButton";
 import { prisma } from "@/db";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function ProfilePageInfo(
 {
@@ -12,7 +12,7 @@ export default async function ProfilePageInfo(
     ourFollow=null,
 }:{
     profile:Profile;
-    isOur?:Boolean;
+    isOur?:boolean;
     ourFollow:Follower|null,
 }
 ){
@@ -46,18 +46,18 @@ export default async function ProfilePageInfo(
                 <Link href={`/storys/${story.id}`} className="size-43 p-1 rounded-full bg-gradient-to-tr from-orange-300 to-red-600"  >
                     <div className="size-41 p-1 bg-white dark:bg-gray-950 rounded-full">
                         <div className="aspect-square overflow-hidden rounded-full" >
-                            <img
+                            <Image
                             className="object-cover w-full h-full"
-                            src={profile.avatar || ""} ></img>
+                            src={profile.avatar || ""} alt="avatar" />
                         </div>
                     </div>
                 </Link>
             ):(
                 <div className="size-41 p-1 rounded-full">
                     <div className="aspect-square overflow-hidden rounded-full" >
-                        <img
+                        <Image
                         className="object-cover w-full h-full"
-                        src={profile.avatar || ""} ></img>
+                        src={profile.avatar || ""} alt="avatar" ></Image>
                     </div>
                 </div>
             )}

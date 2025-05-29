@@ -1,5 +1,4 @@
 import { prisma } from "@/db";
-import { Suspense } from "react";
 import PostsGrid from "./PostsGrid";
 
 export default async function ProfilePosts({email}:{email:string})

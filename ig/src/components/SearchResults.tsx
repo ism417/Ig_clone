@@ -2,7 +2,6 @@ import { prisma } from "@/db"
 import Avatar from "./Avatar"
 import Link from "next/link"
 import PostsGrid from "./PostsGrid";
-import { profile } from "console";
 
 export default async function SearchResult({query}:{query:string}){
     const profiles = await prisma.profile.findMany({
@@ -23,7 +22,7 @@ export default async function SearchResult({query}:{query:string}){
     return(
         <div>
             <h1 className="text-lg mt-4">
-                Search result for "{query}"
+                Search result for :{query}
             </h1>
             {profiles.length > 0 && (
                 <div className="grid mt-4 sm:grid-cols-2 gap-2" >

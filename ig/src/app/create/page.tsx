@@ -2,6 +2,7 @@
 import { createPost } from "@/actions";
 import { Button, TextArea } from "@radix-ui/themes";
 import { Send, UploadCloud } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -35,7 +36,7 @@ export default function CreatPage(){
                 <div className="flex" >
                     <div className={`relative ${imageUrl ? 'w-1/2' : 'size-64'} bg-gray-400 p-2 rounded-md`}>
                         { imageUrl && (
-                            <img src={imageUrl} className=" rounded-md" alt="" />
+                            <Image src={imageUrl} className=" rounded-md" alt="" />
                         )}
                         <div className="absolute inset-0 flex items-center justify-center">
                             <input 

@@ -5,8 +5,8 @@ export default function ProfileNav({
     isOur,
     username,
 }:{
-    isOur:Boolean;
-    username:String|null;
+    isOur:boolean;
+    username:string|null;
 }){
     const path  = usePathname();
     const bookmarkActive = path.includes('bookmarks');

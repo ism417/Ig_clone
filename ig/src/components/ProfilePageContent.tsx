@@ -1,8 +1,5 @@
 import { Follower, Profile } from "@prisma/client";
-import { CheckIcon, ChevronLeft, Settings, UserPlusIcon } from "lucide-react";
 import ProfilePosts from "./ProfilePosts";
-import FollowButton from "./FollowButton";
-import ProfilePage from "./ProfilePageInfo";
 import ProfileNav from "./ProfileNav";
 import ProfilePageInfo from "./ProfilePageInfo";
 
@@ -12,7 +9,7 @@ export default function ProfilePageContent({
     ourFollow=null,
 }:{
     profile:Profile;
-    isOur?:Boolean;
+    isOur?:boolean;
     ourFollow:Follower|null,
 }){
     return(

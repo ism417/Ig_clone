@@ -1,5 +1,6 @@
 'use client'
-import { CameraIcon, HomeIcon, LayoutDashboard, LucideGrid, Search, Send, User2Icon } from "lucide-react";
+import { CameraIcon, HomeIcon, LayoutDashboard,  Search, Send, User2Icon } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 export default function MobileNav(){
   const path  = usePathname();
@@ -13,24 +14,24 @@ export default function MobileNav(){
     return(
         <div className="block lg:hidden fixed bottom-0 bg-white dark:bg-slate-900 px-8 py-2 left-0 right-0">
         <div className="max-w-sm mx-auto flex justify-between text-gray-600">
-        <a href="/">
+        <Link href="/">
               <HomeIcon className={homeActive ? "text-red-600":""}/>
-            </a>
-            <a href="/profile">
+            </Link>
+            <Link href="/profile">
               <User2Icon className={profileActive ? "text-red-600":""}/>
-            </a>
-            <a href="/create">
+            </Link>
+            <Link href="/create">
               <CameraIcon className={createActive ? "text-red-600":""}/>
-            </a>
-            <a href="/messages">
+            </Link>
+            <Link href="/messages">
               <Send className={messageActive ? "text-red-600":""}/>
-            </a>
-            <a href="/browse">
+            </Link>
+            <Link href="/browse">
               <LayoutDashboard className={browseActive ? "text-red-600":""}/>
-            </a>
-            <a href="/search">
+            </Link>
+            <Link href="/search">
               <Search className={searchActive ? "text-red-600":""}/>
-            </a>
+            </Link>
         </div>
       </div>
     );

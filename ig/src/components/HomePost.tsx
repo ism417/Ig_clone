@@ -1,17 +1,16 @@
 import { getSessionEmailOrThrow } from "@/actions";
 import { prisma } from "@/db";
-import { Follower, Profile } from "@prisma/client";
+import { Profile } from "@prisma/client";
 import { Avatar } from "@radix-ui/themes";
 import LikesInfo from "./LikesInfo";
 import { formatDate } from "date-fns";
 import Link from "next/link";
 import BookMarkButton from "./BookMarkButton";
+import Image from "next/image";
 
 export default async function HomePost({
-    friends,
     profiles,
 }:{
-    friends:Follower[];
     profiles:Profile[];
 }){
     const sessionEmail = await getSessionEmailOrThrow();
@@ -59,7 +58,7 @@ export default async function HomePost({
                                 </div>
                             </div>
                             <Link href={`/posts/${post.id}`}>
-                                <img 
+                                <Image 
                                     className="block rounded-lg shadow-md shadow-black/50"
                                     src={post.image} 
                                     alt="post" />

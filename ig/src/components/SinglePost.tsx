@@ -1,10 +1,10 @@
 import Comment from "./Comment";
 import LikesInfo from "./LikesInfo";
-import { BookmarkIcon } from "lucide-react";
 import { Suspense } from "react";
 import SessionCommentForm from "./SessionCommentForm";
 import { Comment as CommentModel, Like, Post, Profile, bookmark } from "@prisma/client";
 import BookMarkButton from "./BookMarkButton";
+import Image from "next/image";
 
 export default async function SinglePost({
     post,
@@ -25,7 +25,7 @@ export default async function SinglePost({
         <div>
             <div className="grid md:grid-cols-2 gap-4">
                 <div >
-                    <img 
+                    <Image 
                     className="rounded-md" 
                     src={post.image} 
                     alt={post.description}/>

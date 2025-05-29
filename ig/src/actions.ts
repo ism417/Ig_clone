@@ -193,6 +193,7 @@ export async function getSinglePostData(postId:string){
             where: {
                 followingProfileEmail: sessionProfile.email,
                 followingProfileId: sessionProfile.id,
+                followedProfileId: profileIdToFollow,
             },
         });
     }

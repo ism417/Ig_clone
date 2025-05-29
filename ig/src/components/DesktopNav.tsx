@@ -1,8 +1,9 @@
 'use client'
 import Image from "next/image";
 import logo from '@/app/logo1.png';
-import { CameraIcon, HomeIcon, LayoutDashboard, MessageSquare, Search, Send, User2Icon } from "lucide-react";
+import { CameraIcon, HomeIcon, LayoutDashboard, Search, Send, User2Icon } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function DesktopNav()
 {
@@ -18,30 +19,30 @@ export default function DesktopNav()
         <div className="top-0 sticky" >
           <Image src={logo} className="pl-1 pt-4 pr-1 w-60 flex justify-center dark:invert" alt=""/>
           <div className="flex flex-col gap-6 mt-6 ml-2 *:flex *:items-center *:gap-2">
-            <a href="/" className={homeActive ? "text-red-500":""}>
+            <Link href="/" className={homeActive ? "text-red-500":""}>
               <HomeIcon />
               Home
-            </a>
-            <a href="/profile" className={profileActive ? "text-red-500":""}>
+            </Link>
+            <Link href="/profile" className={profileActive ? "text-red-500":""}>
               <User2Icon />
               Profile
-            </a>
-            <a href="/create" className={createActive ? "text-red-500":""}>
+            </Link>
+            <Link href="/create" className={createActive ? "text-red-500":""}>
               <CameraIcon />
               Create
-            </a>
-            <a href="/messages" className={messageActive ? "text-red-500":""}>
+            </Link>
+            <Link href="/messages" className={messageActive ? "text-red-500":""}>
               <Send/>
               Messages
-            </a>
-            <a href="/browse" className={browseActive ? "text-red-500":""}>
+            </Link>
+            <Link href="/browse" className={browseActive ? "text-red-500":""}>
               <LayoutDashboard />
               Browse
-            </a>
-            <a href="/search" className={searchActive ? "text-red-500":""}>
+            </Link>
+            <Link href="/search" className={searchActive ? "text-red-500":""}>
               <Search />
               Search
-            </a>
+            </Link>
           </div>
         </div>
       </div>

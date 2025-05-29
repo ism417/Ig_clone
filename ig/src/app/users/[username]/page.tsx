@@ -3,10 +3,11 @@ import ProfilePageContent from "@/components/ProfilePageContent";
 import { prisma } from "@/db"
 
 export default async function UserProfilePage({
-    params:{username},
+    params,
 }:{
-    params:{username:string}
+    params:Promise<{ username: string }>;
 }){
+    const { username } = await params;
     const sessionEmail = await getSessionEmail() || '';
     const profile = await prisma.profile.findFirstOrThrow({
         where:{

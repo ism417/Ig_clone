@@ -35,12 +35,6 @@ export default async function ConversationList(){
             </div>
             <div>
                 {profiles.map(async profile => {
-                    const newconvo = await prisma.convo.findFirst({
-                        where:{
-                            destId: profile.id,
-                            srcId: myProfile?.id as string,
-                        }
-                    })
                     if (typeof convos.find(con => con.destId === profile.id || con.srcId === profile.id) == 'undefined')
                         startConvo(profile);
                     return (

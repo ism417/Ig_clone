@@ -1,5 +1,4 @@
 import ProfileNav from "@/components/ProfileNav";
-import ProfilePage from "../page";
 import { auth } from "@/auth";
 import { prisma } from "@/db";
 import { redirect } from "next/navigation";

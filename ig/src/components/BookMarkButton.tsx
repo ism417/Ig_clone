@@ -1,7 +1,7 @@
 'use client'
-import { Bookpost, likepost, removeBookFromPost, removeLikeFromPost } from "@/actions";
-import { Like, Post, bookmark } from "@prisma/client";
-import { BookMarkedIcon, BookmarkIcon, HeartIcon } from "lucide-react";
+import { Bookpost, removeBookFromPost } from "@/actions";
+import { Post, bookmark } from "@prisma/client";
+import { BookmarkIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

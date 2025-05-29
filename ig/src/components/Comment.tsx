@@ -1,7 +1,6 @@
 import { Profile } from "@prisma/client"
 import Avatar from "./Avatar";
 import { formatDate } from "date-fns";
-import { Edit, Edit2, Edit2Icon, Trash2Icon, TrashIcon } from "lucide-react";
 import DeleteCommentForm from "./DeleteCommentForm";
 
 export default function Comment({
