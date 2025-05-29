@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  email     String @unique
+  bio       String?
+  name      String
+  avatar    String?
+  username  String?
+  subtitle  String?
+}
+model Post {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  author String @unique
+  image String 
+  description String
+  likecount Int @default(0)
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+}
+model Comment {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  author String @unique
+  text String
+  postId String @db.ObjectId
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+}
+
+model Like {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  author String @unique
+  postId String @db.ObjectId
+  createdAt DateTime @default(now())
+}
+
+model Follower {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  followingProfileEmail String 
+  followingProfileId String @db.ObjectId
+  followedProfileId String @db.ObjectId
+  createdAt DateTime @default(now())
+}
+
+model convo{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  srcEmail String
+  destId String @db.ObjectId
+  srcId String @db.ObjectId
+}
+
+model message {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  text String
+  author String
+  convoId String @db.ObjectId
+  createdAt DateTime @default(now())
+}
+
+model bookmark{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  postId String @db.ObjectId
+  profileBookingEmail String 
+  createdAt DateTime @default(now())
+}
+
+model Story {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  author String @unique
+  image String 
+  createdAt DateTime @default(now())
+}
